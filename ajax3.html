@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <button id="button">Load GitHub Users</button>
+
+
+    <script>
+
+document.getElementById('button').addEventListener('click', loadUsers)
+
+
+function loadUsers() {
+    let xhr = new XMLHttpRequest();
+const req = 'https://api.github.com/users'
+
+    xhr.open('GET', req, true )
+
+    xhr.onload = function () {
+       if(this.status == 200){
+           let users = JSON.parse(this.responseText)
+
+           console.log(users);
+           
+           
+       } 
+      
+    }
+
+    xhr.send()
+}
+
+    </script>
+</body>
+</html>
